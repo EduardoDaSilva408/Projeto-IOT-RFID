@@ -1,0 +1,80 @@
+[
+    {
+        "id": "5230c72.fadcf38",
+        "type": "tab",
+        "label": "Sheet 1"
+    },
+    {
+        "id": "26cdc9b6.d17bc6",
+        "type": "function",
+        "z": "5230c72.fadcf38",
+        "name": "",
+        "func": "msg.payload = msg.payload == \"1234\" ? \"Liberado\" : \"Não Liberado\"\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 350,
+        "y": 920,
+        "wires": [
+            [
+                "41044d51.7edef4"
+            ]
+        ]
+    },
+    {
+        "id": "94509fc2.b7c14",
+        "type": "mqtt in",
+        "z": "5230c72.fadcf38",
+        "name": "",
+        "topic": "projeto-mackenzie-rfid",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "3928d66f.55837a",
+        "x": 320,
+        "y": 840,
+        "wires": [
+            [
+                "26cdc9b6.d17bc6"
+            ]
+        ]
+    },
+    {
+        "id": "41044d51.7edef4",
+        "type": "debug",
+        "z": "5230c72.fadcf38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 590,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "3928d66f.55837a",
+        "type": "mqtt-broker",
+        "name": "projeto",
+        "broker": "broker.mqttdashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
